@@ -6,7 +6,7 @@ import copy
 
 
 class DatasetCatalog(object):
-    DATA_DIR = "/home/chenguikun/projects/SGG_Mixup/datasets/"
+    DATA_DIR = "datasets/"
     DATASETS = {
         "coco_2017_train": {
             "img_dir": "coco/train2017",
@@ -119,7 +119,7 @@ class DatasetCatalog(object):
             "capgraphs_file": "vg/vg_capgraphs_anno.json",
         },
         "GQA_200": {
-            "img_dir": "/home/chenguikun/datasets/gqa/images/images",
+            "img_dir": "datasets/gqa/images/images",
             "dict_file": "gqa/GQA_200_ID_Info.json",
             "train_file": "gqa/GQA_200_Train.json",
             "test_file": "gqa/GQA_200_Test.json",
