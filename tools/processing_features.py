@@ -68,12 +68,12 @@ def gen_tri_dict(feat_path, mode, group):
             else:
                 export_feats[new_key] = [(add_rel_label, sub_feature, obj_feature, tail_sub_proposal, tail_obj_proposal, union_feature, vector, wh)]
 
-    np.save('{}/{}_{}_feature_tri_with_proposal_dict_motif.npy'.format(feat_path, mode, group), export_feats, allow_pickle=True)
+    np.save('{}/{}_{}_feature_with_proposal_dict_motif.npy'.format(feat_path, mode, group), export_feats, allow_pickle=True)
 
 
 
 def gen_tri_map(feat_path, mode, group):
-    feats = np.load('{}/{}_{}_feature_tri_with_proposal_dict_motif.npy'.format(feat_path, mode, group), allow_pickle=True).item()
+    feats = np.load('{}/{}_{}_feature_with_proposal_dict_motif.npy'.format(feat_path, mode, group), allow_pickle=True).item()
     pred_dict = {}
     sub_dict = {}
     obj_dict = {}
