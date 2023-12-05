@@ -304,9 +304,15 @@ class AugBilvlMxiUpRelationFeatureExtractor(nn.Module):
             self.body_tri_map_dict = np.load(os.path.join(cfg.MIXUP.FEAT_PATH, 'sgcls_body_tri_map.npy'), allow_pickle=True).item()
         else:
             if cfg.FG_TAIL == True:
-                self.tail_features_dict = np.load(os.path.join(cfg.MIXUP.FEAT_PATH, 'sgcls_tail_sub_obj_feature_with_proposal_dict_motif.npy'), allow_pickle=True)
+                if cfg.MODEL.ROI_RELATION_HEAD.USE_GT_OBJECT_LABEL == True:
+                    self.tail_features_dict = np.load(os.path.join(cfg.MIXUP.FEAT_PATH, 'tail_sub_obj_feature_with_proposal_dict_motif.npy'), allow_pickle=True)
+                else:
+                    self.tail_features_dict = np.load(os.path.join(cfg.MIXUP.FEAT_PATH, 'sgcls_tail_sub_obj_feature_with_proposal_dict_motif.npy'), allow_pickle=True)
             if cfg.FG_BODY == True:
-                self.body_features_dict = np.load(os.path.join(cfg.MIXUP.FEAT_PATH, 'sgcls_body_sub_obj_feature_with_proposal_dict_motif.npy'), allow_pickle=True)
+                if cfg.MODEL.ROI_RELATION_HEAD.USE_GT_OBJECT_LABEL == True:
+                    self.body_features_dict = np.load(os.path.join(cfg.MIXUP.FEAT_PATH, 'body_sub_obj_feature_with_proposal_dict_motif.npy'), allow_pickle=True)
+                else:
+                    self.body_features_dict = np.load(os.path.join(cfg.MIXUP.FEAT_PATH, 'sgcls_body_sub_obj_feature_with_proposal_dict_motif.npy'), allow_pickle=True)
 
             if cfg.MIXUP.MIXUP_ADD_TAIL == True:
                 if cfg.MODEL.ROI_RELATION_HEAD.USE_GT_OBJECT_LABEL == True:
